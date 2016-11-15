@@ -26,7 +26,16 @@ function addItem(){
 var input= document.getElementById("newItem").value;
 var list=  document.getElementById("listDisplay");
 var item= document.createElement("li");
+var btnClose= document.createElement("button");
+var iconClose= document.createElement("span");
 var itemName= document.createTextNode(input);
+iconClose.classList.add("glyphicon");
+iconClose.classList.add("glyphicon-remove");
+btnClose.classList.add("btn");
+btnClose.classList.add("btn-danger");
+btnClose.classList.add("btn-xs");
+btnClose.appendChild(iconClose);
+item.appendChild(btnClose);
 item.appendChild(itemName);
 list.appendChild(item);
 document.getElementById("newItem").value = "";
