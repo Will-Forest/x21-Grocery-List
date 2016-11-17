@@ -1,5 +1,5 @@
 
-
+var myList = [];
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -35,11 +35,16 @@ btnClose.classList.add("btn");
 btnClose.classList.add("btn-danger");
 btnClose.classList.add("btn-xs");
 btnClose.appendChild(iconClose);
-btnClose.addEventListener("click", removeParentListItem)
-item.appendChild(btnClose);
-item.appendChild(itemName);
-list.appendChild(item);
-document.getElementById("newItem").value = "";
+btnClose.addEventListener("click", removeParentListItem);
+if (myList.indexOf(input) == -1) {
+  item.appendChild(btnClose);
+  item.appendChild(itemName);
+  list.appendChild(item);
+  document.getElementById("newItem").value = "";
+  myList.push(input);
+  console.log(myList);
+}
+
 }
 function removeParentListItem() {
   var mom = this.parentNode;
